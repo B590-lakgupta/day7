@@ -1,8 +1,17 @@
 package com.example.day7_activity
 
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
 fun main() {
-    milkCows()
-    feedChickens()
+    runBlocking {
+        launch {
+            milkCows()
+        }
+        launch {
+            feedChickens()
+        }
+    }
 }
 
 fun milkCows() {
