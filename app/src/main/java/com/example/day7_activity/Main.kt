@@ -1,10 +1,11 @@
 package com.example.day7_activity
 
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-fun main() {
-    runBlocking {
+suspend fun main() {
+    coroutineScope {
         launch {
             milkCows()
         }
