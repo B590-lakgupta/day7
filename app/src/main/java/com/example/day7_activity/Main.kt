@@ -1,25 +1,23 @@
-package com.example.day7_activity
-
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 suspend fun main() {
     println("in main before coroutineScope")
 
     coroutineScope {
         launch {
+            delay(2000L) // Delay for 2 seconds
             milkCows()
         }
         launch {
+            delay(1000L) // Delay for 1 second
             feedChickens()
         }
     }
 
     println("in main after coroutineScope")
 }
-
-
 
 fun milkCows() {
     var cow = 1
