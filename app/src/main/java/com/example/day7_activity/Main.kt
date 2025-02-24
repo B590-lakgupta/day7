@@ -5,6 +5,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 suspend fun main() {
+    println("in main before coroutineScope")
+
     coroutineScope {
         launch {
             milkCows()
@@ -13,7 +15,11 @@ suspend fun main() {
             feedChickens()
         }
     }
+
+    println("in main after coroutineScope")
 }
+
+
 
 fun milkCows() {
     var cow = 1
