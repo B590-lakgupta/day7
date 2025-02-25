@@ -11,6 +11,7 @@ fun main() {
         launch {
             for (k in 1..4) {
                 println("hello $k")
+                delay(100) // Delay of 100 milliseconds
             }
         }
 
@@ -20,6 +21,7 @@ fun main() {
 
 fun milkMeasurement(): Flow<Float> = flow {
     for (i in arrayOf(180F, 76F, 10F, 92F)) {
+        delay(100) // Delay of 100 milliseconds
         emit(i)
     }
 }
