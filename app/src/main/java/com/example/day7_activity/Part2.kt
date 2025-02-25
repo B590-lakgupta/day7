@@ -3,13 +3,16 @@ package com.example.day7_activity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.transform
 import kotlinx.coroutines.runBlocking
 
 fun main() {
     runBlocking {
         milkMeasurement()
-            .map { x -> format(x) }
+            .transform { x ->
+                emit("Receiving measurement: $x")
+                emit(format(x))
+            }
             .collect { x -> println(x) }
 
         println("Done")
