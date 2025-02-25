@@ -1,6 +1,7 @@
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.yield
 
 suspend fun main() {
     println("in main before coroutineScope")
@@ -20,26 +21,34 @@ suspend fun main() {
     println("in main after coroutineScope")
 }
 
-fun milkCows() {
+suspend fun milkCows() {
     var cow = 1
     println("Milking cow #$cow")
+    yield()  // Yield control to another coroutine
     cow += 1
     println("Milking cow #$cow")
+    yield()
     cow += 1
     println("Milking cow #$cow")
+    yield()
     cow += 1
     println("Milking cow #$cow")
+    yield()
     cow += 1
 }
 
-fun feedChickens() {
+suspend fun feedChickens() {
     var chicken = 1
     println("Feeding chicken #$chicken")
+    yield()  // Yield control to another coroutine
     chicken += 1
     println("Feeding chicken #$chicken")
+    yield()
     chicken += 1
     println("Feeding chicken #$chicken")
+    yield()
     chicken += 1
     println("Feeding chicken #$chicken")
+    yield()
     chicken += 1
 }
