@@ -14,6 +14,7 @@ suspend fun main() {
             delay(1000L) // Delay for 1 second
             feedChickens()
         }
+        println("in main in coroutineScope after the two launches")
     }
 
     println("in main after coroutineScope")
